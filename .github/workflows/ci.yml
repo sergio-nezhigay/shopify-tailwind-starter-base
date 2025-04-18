@@ -34,19 +34,3 @@ jobs:
           lhci_github_app_token: ${{ secrets.LHCI_GITHUB_APP_TOKEN }}
           product_handle: ${{ secrets.SHOP_PRODUCT_HANDLE }}
           collection_handle: ${{ secrets.SHOP_COLLECTION_HANDLE }}
-
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - uses: actions/checkout@v4
-        with:
-          repository: "shopify/dawn"
-          path: "./dawn"
-          ref: 'v6.0.0'
-      - name: Theme Check
-        uses: ./
-        id: theme-check-action
-        with:
-          theme_root: './dawn'
-          flags: '--fail-level crash'
-          version: '3.55.0'

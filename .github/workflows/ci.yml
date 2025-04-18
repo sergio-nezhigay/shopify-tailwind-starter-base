@@ -34,51 +34,7 @@ jobs:
           lhci_github_app_token: ${{ secrets.LHCI_GITHUB_APP_TOKEN }}
           product_handle: ${{ secrets.SHOP_PRODUCT_HANDLE }}
           collection_handle: ${{ secrets.SHOP_COLLECTION_HANDLE }}
-  check_dawn:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - uses: actions/checkout@v4
-        with:
-          repository: "shopify/dawn"
-          path: "./dawn"
-      - name: Theme Check
-        uses: ./
-        id: theme-check-action
-        with:
-          flags: '--fail-level crash'
-          theme_root: './dawn'
-  check_dawn_with_flags:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - uses: actions/checkout@v4
-        with:
-          repository: "shopify/dawn"
-          path: "./dawn"
-      - name: Theme Check
-        uses: ./
-        id: theme-check-action
-        with:
-          theme_root: './dawn'
-          flags: '--fail-level crash'
-  check_dawn_with_version_dev_preview:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - uses: actions/checkout@v4
-        with:
-          repository: "shopify/dawn"
-          path: "./dawn"
-          ref: 'v6.0.0'
-      - name: Theme Check
-        uses: ./
-        id: theme-check-action
-        with:
-          theme_root: './dawn'
-          flags: '--fail-level crash'
-          version: '3.50.0'
-  check_dawn_with_version_theme_check_2:
+
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4

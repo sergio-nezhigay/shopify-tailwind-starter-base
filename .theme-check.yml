@@ -1,5 +1,3 @@
-extends: theme-check-default
-
 exclude:
   - node_modules
 

@@ -1,4 +1,13 @@
-MatchingTranslations:
+extends: theme-check-default
+
+exclude:
+  - node_modules
+
+LiquidTag:
   enabled: false
-TemplateLength:
+
+NestedSnippet:
+  enabled: false
+
+SpaceInsideBraces:
   enabled: false

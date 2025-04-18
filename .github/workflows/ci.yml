@@ -40,14 +40,28 @@ jobs:
           product_handle: ${{ secrets.SHOP_PRODUCT_HANDLE }}
           collection_handle: ${{ secrets.SHOP_COLLECTION_HANDLE }}
   theme-check:
-    name: Theme Check
     runs-on: ubuntu-latest
+
     steps:
+      # Checkout the repository
       - name: Checkout code
         uses: actions/checkout@v3
-      - name: Install Ruby
-        run: sudo apt-get install ruby-full
+
+      # Set up Ruby
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: 3.2 # Replace with the version you need
+          bundler-cache: true
+
+      # Install Theme Check locally
       - name: Install Theme Check
-        run: gem install theme-check
+        run: gem install theme-check --user-install
+
+      # Add local gem path to PATH
+      - name: Add gem install path to PATH
+        run: echo "::add-path::$HOME/.gem/ruby/$(ruby -e 'print RUBY_VERSION')/bin"
+
+      # Run Theme Check
       - name: Run Theme Check
         run: theme-check
